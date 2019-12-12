@@ -3,11 +3,12 @@
 //
 #include <iostream>
 #include <vector>
+
 #include "reglesDuJeu.h"
 
 using namespace std;
 
-void mouvementPion(string mouvement, vector<vector<etatCellule>> tablier, int taille);
+void mouvementPion(string mouvement, vector<vector<etatCellule>>& tablier, int taille);
 /**
 * @name
 * @brief
@@ -15,7 +16,7 @@ void mouvementPion(string mouvement, vector<vector<etatCellule>> tablier, int ta
 * @param tablier
 * @param taille
 */
-void coupPossibles(string mouvement, vector<vector<etatCellule>> tablier, int taille)
+void coupPossibles(string mouvement, vector<vector<etatCellule>>& tablier, int taille)
 {
     vector<string> coupPossibles;
     for(unsigned i=1; i<taille; i++)
@@ -43,16 +44,23 @@ void coupPossibles(string mouvement, vector<vector<etatCellule>> tablier, int ta
         }
 
     }
-
+    bool coupPossible=0;
     for (auto i = coupPossibles.begin(); i != coupPossibles.end(); i++) {
-        if (*i == mouvement) {
-            mouvementPion(mouvement, tablier, taille);
-        } else if(mouvement=="h"){
+        if (mouvement == "h") {
             cout << *i << " ";
-        } else{
-            cout << "Entrée invalide";
+        }
+        else if(mouvement == *i)
+        {
+            coupPossible = true;
         }
     }
+        if (coupPossible) {
+            mouvementPion(mouvement, tablier, taille);
+            coupPossible = false;
+        } else {
+            cout << "Entrée invalide";
+        }
+
     cout << endl;
 }
 /**
@@ -62,13 +70,13 @@ void coupPossibles(string mouvement, vector<vector<etatCellule>> tablier, int ta
 * @param tablier Vecteur contenant les données du jeu
 * @param taille taille du tablier
 */
-void mouvementPion(string mouvement, vector<vector<etatCellule>> tablier, int taille)
+void mouvementPion(string mouvement, vector<vector<etatCellule>>& tablier, int taille)
 {
     const unsigned int coordonneesY = 0;
     const unsigned int coordonneesX = 1;
     const unsigned int direction=2;
-    unsigned int valeurY = mouvement[coordonneesY];
-    unsigned int valeurX = mouvement[coordonneesX];
+    unsigned int valeurY = int(mouvement[coordonneesY]) - 48;
+    unsigned int valeurX = int(mouvement[coordonneesX]) - 48;
     char directionMouvement = mouvement[direction];
 
     switch(directionMouvement)
