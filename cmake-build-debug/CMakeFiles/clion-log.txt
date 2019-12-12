@@ -16,3 +16,4 @@
 -- Configuring done
 -- Generating done
 -- Build files have been written to: D:/HEIG-VD/INF1/Labo8/LAB8/cmake-build-debug
+-- test
