@@ -16,7 +16,7 @@ void mouvementPion(string mouvement, vector<vector<etatCellule>>& tablier, int t
 * @param tablier
 * @param taille
 */
-void coupPossibles(string mouvement, vector<vector<etatCellule>>& tablier, int taille)
+void coupPossibles(string mouvement, vector<vector<etatCellule>>& tablier, int taille, int& compteur)
 {   const int deuxCases=2; ///Définit la valeur pour compter deux cases de distance
     const int uneCase=1;
     const int valeurTableauReel=1;
@@ -31,7 +31,7 @@ void coupPossibles(string mouvement, vector<vector<etatCellule>>& tablier, int t
                 if(i+2 <taille && tablier[i+deuxCases][j]==existant && tablier[i+uneCase][j]==existant){
                     coupPossibles.push_back(to_string(i+deuxCases+valeurTableauReel)+to_string(j+valeurTableauReel)+'u');
                 }
-                if (i-2 > 0  && tablier[i-2][j] == existant && tablier[i-1][j] == existant)
+                if (i-2>=0  && tablier[i-2][j] == existant && tablier[i-1][j] == existant)
                 {
                     coupPossibles.push_back(to_string(i-deuxCases+valeurTableauReel)+to_string(j+valeurTableauReel)+'d');
                 }
@@ -39,7 +39,7 @@ void coupPossibles(string mouvement, vector<vector<etatCellule>>& tablier, int t
                 {
                     coupPossibles.push_back(to_string(i+valeurTableauReel)+to_string(j+deuxCases+valeurTableauReel)+'l');
                 }
-                if(j-2>0  && tablier[i][j-2] == existant && tablier[i][j-1] == existant)
+                if(j-2>=0  && tablier[i][j-2] == existant && tablier[i][j-1] == existant)
                 {
                     coupPossibles.push_back(to_string(i+valeurTableauReel)+to_string(j-deuxCases+valeurTableauReel)+'r');
                 }
@@ -47,6 +47,12 @@ void coupPossibles(string mouvement, vector<vector<etatCellule>>& tablier, int t
         }
 
     }
+    if(coupPossibles.empty())
+    {
+        cout << "Fin de partie"<<endl;
+        return;
+    }
+
     bool coupPossible=0;
     for (auto i = coupPossibles.begin(); i != coupPossibles.end(); i++) {
         if (mouvement == "h") {
@@ -56,13 +62,15 @@ void coupPossibles(string mouvement, vector<vector<etatCellule>>& tablier, int t
         else if(mouvement == *i)
         {
             coupPossible = true;
-            mouvementPion(mouvement, tablier, taille);;
+            mouvementPion(mouvement, tablier, taille);
+            compteur--;
         }
 
     }
         if (!(coupPossible)) {
             cout << "Entrée invalide";
         }
+
         cout <<endl;
 
 }

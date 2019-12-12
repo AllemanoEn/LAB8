@@ -22,17 +22,18 @@ void initialisationTablier(vector<vector<etatCellule>>& tablier){
 int main() {
 
     vector<vector<etatCellule>> tablier(7,vector<etatCellule>(7));
-
+    int compteurBilles=32;
     initialisationTablier(tablier);
 
     affichageTablier(tablier);
+    do {
+        string input;
+        getline(cin, input);
 
-    string input;
-    getline(cin,input);
+        coupPossibles(input, tablier, 7, compteurBilles);
 
-    coupPossibles(input, tablier,7);
-
-    affichageTablier(tablier);
+        affichageTablier(tablier);
+    } while (compteurBilles!=1);
 
     return 0;
 }
