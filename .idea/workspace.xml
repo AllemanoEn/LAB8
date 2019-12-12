@@ -11,7 +11,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ece33da-7b15-4e23-9733-fd36a84bb7e9" name="Default Changelist" comment="" />
+    <list default="true" id="2ece33da-7b15-4e23-9733-fd36a84bb7e9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/affichage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/affichage.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +27,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/LAB8" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1UpzbsoTAqbLADjJLxwaDYqFuTV" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -36,7 +41,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunManager">
     <configuration name="LAB8" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="LAB8" TARGET_NAME="LAB8" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LAB8" RUN_TARGET_NAME="LAB8">
@@ -68,20 +73,62 @@
       <option name="presentableId" value="Default" />
       <updated>1576068398902</updated>
       <workItem from="1576068400202" duration="682000" />
+      <workItem from="1576142901437" duration="4314000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/LAB8" />
+    </ignored-roots>
+  </component>
   <component name="WindowStateProjectService">
+    <state x="432" y="114" key="CommitChangelistDialog2" timestamp="1576147437772">
+      <screen x="0" y="0" width="1620" height="1040" />
+    </state>
+    <state x="432" y="114" key="CommitChangelistDialog2/0.0.1620.1040@0.0.1620.1040" timestamp="1576147437772" />
     <state x="592" y="275" key="FileChooserDialogImpl" timestamp="1576068626888">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state x="592" y="275" key="FileChooserDialogImpl/0.0.1620.1040@0.0.1620.1040" timestamp="1576068626888" />
-    <state x="312" y="162" key="SettingsEditor" timestamp="1576068712858">
+    <state width="1578" height="282" key="GridCell.Tab.0.bottom" timestamp="1576147424519">
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
-    <state x="312" y="162" key="SettingsEditor/0.0.1620.1040@0.0.1620.1040" timestamp="1576068712858" />
+    <state width="1578" height="282" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1576147424519" />
+    <state width="1578" height="282" key="GridCell.Tab.0.center" timestamp="1576147424517">
+      <screen x="0" y="0" width="1620" height="1040" />
+    </state>
+    <state width="1578" height="282" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1576147424517" />
+    <state width="1578" height="282" key="GridCell.Tab.0.left" timestamp="1576147424517">
+      <screen x="0" y="0" width="1620" height="1040" />
+    </state>
+    <state width="1578" height="282" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1576147424517" />
+    <state width="1578" height="282" key="GridCell.Tab.0.right" timestamp="1576147424518">
+      <screen x="0" y="0" width="1620" height="1040" />
+    </state>
+    <state width="1578" height="282" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1576147424518" />
+    <state width="1578" height="348" key="GridCell.Tab.1.bottom" timestamp="1576145325154">
+      <screen x="0" y="0" width="1620" height="1040" />
+    </state>
+    <state width="1578" height="348" key="GridCell.Tab.1.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1576145325154" />
+    <state width="1578" height="348" key="GridCell.Tab.1.center" timestamp="1576145325153">
+      <screen x="0" y="0" width="1620" height="1040" />
+    </state>
+    <state width="1578" height="348" key="GridCell.Tab.1.center/0.0.1620.1040@0.0.1620.1040" timestamp="1576145325153" />
+    <state width="1578" height="348" key="GridCell.Tab.1.left" timestamp="1576145325153">
+      <screen x="0" y="0" width="1620" height="1040" />
+    </state>
+    <state width="1578" height="348" key="GridCell.Tab.1.left/0.0.1620.1040@0.0.1620.1040" timestamp="1576145325153" />
+    <state width="1578" height="348" key="GridCell.Tab.1.right" timestamp="1576145325153">
+      <screen x="0" y="0" width="1620" height="1040" />
+    </state>
+    <state width="1578" height="348" key="GridCell.Tab.1.right/0.0.1620.1040@0.0.1620.1040" timestamp="1576145325153" />
+    <state x="312" y="162" key="SettingsEditor" timestamp="1576142923942">
+      <screen x="0" y="0" width="1620" height="1040" />
+    </state>
+    <state x="312" y="162" key="SettingsEditor/0.0.1620.1040@0.0.1620.1040" timestamp="1576142923942" />
   </component>
 </project>
