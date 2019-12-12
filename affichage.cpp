@@ -5,6 +5,7 @@ using namespace std;
 
 enum etatCellule {nonExistant, existant, vide};
 
+
 vector<vector<etatCellule>> tablier(8,vector<etatCellule>(8));
 
 void initialisationTablier(){
