@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/jetca/Documents/INF1/LAB8/affichage.cpp
+iostream
+-
+vector
+-
+
+C:/Users/jetca/Documents/INF1/LAB8/main.cpp
+iostream
+-
+affichage.cpp
+C:/Users/jetca/Documents/INF1/LAB8/affichage.cpp
+reglesDuJeu.cpp
+C:/Users/jetca/Documents/INF1/LAB8/reglesDuJeu.cpp
+
+C:/Users/jetca/Documents/INF1/LAB8/reglesDuJeu.cpp
+

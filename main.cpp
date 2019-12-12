@@ -5,9 +5,10 @@
 using namespace std;
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
 
-    cout << "asdasd";
+    initialisationTablier();
+
+    affichageTablier();
 
     return 0;
 }
