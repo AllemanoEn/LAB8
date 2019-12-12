@@ -6,19 +6,23 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/jetca/Documents/INF1/LAB8/affichage.cpp
+C:/Users/Nicolas/Documents/Ecole/INF1/LAB8/affichage.cpp
 iostream
 -
 vector
 -
 
-C:/Users/jetca/Documents/INF1/LAB8/main.cpp
+C:/Users/Nicolas/Documents/Ecole/INF1/LAB8/main.cpp
 iostream
 -
 affichage.cpp
-C:/Users/jetca/Documents/INF1/LAB8/affichage.cpp
+C:/Users/Nicolas/Documents/Ecole/INF1/LAB8/affichage.cpp
 reglesDuJeu.cpp
-C:/Users/jetca/Documents/INF1/LAB8/reglesDuJeu.cpp
+C:/Users/Nicolas/Documents/Ecole/INF1/LAB8/reglesDuJeu.cpp
 
-C:/Users/jetca/Documents/INF1/LAB8/reglesDuJeu.cpp
+C:/Users/Nicolas/Documents/Ecole/INF1/LAB8/reglesDuJeu.cpp
+iostream
+-
+vector
+-
 

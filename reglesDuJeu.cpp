@@ -5,29 +5,29 @@
 #include <vector>
 
 using namespace std;
-void mouvementPion(string mouvement, int tab[7][7], int taille);
+void mouvementPion(string mouvement, vector<vector<etatCellule>> tablier, int taille);
 
-void coupPossibles(int tab[7][7], int taille, string mouvement)
+void coupPossibles(string mouvement, vector<vector<etatCellule>> tablier, int taille)
 {
     vector<string> coupPossibles;
     for(unsigned i=0; i<taille; i++)
     {
         for (unsigned j=0; j<taille; i++)
         {
-            if(tab[i][j]==0)
+            if(tablier[i][j]==vide)
             {
-                if(i+2 <taille && tab[i+2][j]==1 && tab[i+1][j]==1){
+                if(i+2 <taille && tablier[i+2][j]==existant && tablier[i+1][j]==existant){
                     coupPossibles.push_back(to_string(i)+to_string(j)+'r');
                 }
-                if (i-2 > 0 < taille && tab[i-2][j] == 1 && tab[i-1][j] == 1)
+                if (i-2 > 0 < taille && tablier[i-2][j] == existant && tablier[i-1][j] == existant)
                 {
                     coupPossibles.push_back(to_string(i)+to_string(j)+'l');
                 }
-                if(j+2 < taille && tab[i][j+2] == 1 && tab[i][j+1] == 1)
+                if(j+2 < taille && tablier[i][j+2] == existant && tablier[i][j+1] == existant)
                 {
                     coupPossibles.push_back(to_string(i)+to_string(j)+'d');
                 }
-                if(j-2>0 < taille && tab[i][j-2] == 1 && tab[i][j-1] == 1)
+                if(j-2>0 < taille && tablier[i][j-2] == existant && tablier[i][j-1] == existant)
                 {
                     coupPossibles.push_back(to_string(i)+to_string(j)+'u');
                 }
@@ -39,15 +39,13 @@ void coupPossibles(int tab[7][7], int taille, string mouvement)
     {
 
     }*/
-    for(auto i = coupPossibles.begin(); i != coupPossibles.end()-1; i++)
-    {
-        if (*i==mouvement)
-        {
-            mouvementPion(mouvement, tab,taille);
-        }
-        else
-        {
-            ///Coup impossible
+    if (mouvement != "h") {
+        for (auto i = coupPossibles.begin(); i != coupPossibles.end() - 1; i++) {
+            if (*i == mouvement) {
+                mouvementPion(mouvement, tablier, taille);
+            } else {
+                cout << "Coup impossible" << endl;
+            }
         }
     }
 }
@@ -56,10 +54,10 @@ void coupPossibles()
 
 }
 
-void mouvementPion(string mouvement, int tab[7][7], int taille)
+void mouvementPion(string mouvement, vector<vector<etatCellule>> tablier, int taille)
 {
     const unsigned int coordonneesY = 0;
-    const unsigned int coordonneesX = 0;
+    const unsigned int coordonneesX = 1;
     const unsigned int direction=2;
     unsigned int valeurY = mouvement[coordonneesY];
     unsigned int valeurX = mouvement[coordonneesX];
@@ -67,23 +65,16 @@ void mouvementPion(string mouvement, int tab[7][7], int taille)
 
     switch(directionMouvement)
     {
-        case 'u' : tab[valeurY-1][valeurX] = 0;
+        case 'u' : tablier[valeurY-1][valeurX] = vide;
             break;
-        case 'd' : tab[valeurY+1][valeurX] = 0;
+        case 'd' : tablier[valeurY+1][valeurX] = vide;
             break;
-        case 'l' : tab[valeurY][valeurX-1] = 0;
+        case 'l' : tablier[valeurY][valeurX-1] = vide;
             break;
-        case 'r' : tab[valeurY][valeurX+1] = 0;
+        case 'r' : tablier[valeurY][valeurX+1] = vide;
             break;
         default : cout << "Entrée invalide" << endl;
     }
 
 
-}
-
-
-int reglesDuJeu(int tab[7][7],int taille)
-{
-
-    return 0;
 }
