@@ -25,26 +25,26 @@ void coupPossibles(string mouvement, vector<vector<etatCellule>> tablier, int ta
             if(tablier[i][j]==vide)
             {
                 if(i+2 <taille && tablier[i+2][j]==existant && tablier[i+1][j]==existant){
-                    coupPossibles.push_back(to_string(i)+to_string(j)+'r');
+                    coupPossibles.push_back(to_string(i+2)+to_string(j)+'u');
                 }
-                if (i-2 > 0 < taille && tablier[i-2][j] == existant && tablier[i-1][j] == existant)
+                if (i-2 > 0  && tablier[i-2][j] == existant && tablier[i-1][j] == existant)
                 {
-                    coupPossibles.push_back(to_string(i)+to_string(j)+'l');
+                    coupPossibles.push_back(to_string(i-2)+to_string(j)+'d');
                 }
                 if(j+2 < taille && tablier[i][j+2] == existant && tablier[i][j+1] == existant)
                 {
-                    coupPossibles.push_back(to_string(i)+to_string(j)+'d');
+                    coupPossibles.push_back(to_string(i)+to_string(j+2)+'l');
                 }
-                if(j-2>0 < taille && tablier[i][j-2] == existant && tablier[i][j-1] == existant)
+                if(j-2>0  && tablier[i][j-2] == existant && tablier[i][j-1] == existant)
                 {
-                    coupPossibles.push_back(to_string(i)+to_string(j)+'u');
+                    coupPossibles.push_back(to_string(i)+to_string(j-2)+'r');
                 }
             }
         }
 
     }
 
-    for (auto i = coupPossibles.begin(); i != coupPossibles.end() - 1; i++) {
+    for (auto i = coupPossibles.begin(); i != coupPossibles.end(); i++) {
         if (*i == mouvement) {
             mouvementPion(mouvement, tablier, taille);
         } else if(mouvement=="h"){
