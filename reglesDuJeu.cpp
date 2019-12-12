@@ -51,20 +51,20 @@ void coupPossibles(string mouvement, vector<vector<etatCellule>>& tablier, int t
     for (auto i = coupPossibles.begin(); i != coupPossibles.end(); i++) {
         if (mouvement == "h") {
             cout << *i << " ";
+            coupPossible=true;
         }
         else if(mouvement == *i)
         {
             coupPossible = true;
-        }
-    }
-        if (coupPossible) {
-            mouvementPion(mouvement, tablier, taille);
-            coupPossible = false;
-        } else {
-            cout << "Entrée invalide";
+            mouvementPion(mouvement, tablier, taille);;
         }
 
-    cout << endl;
+    }
+        if (!(coupPossible)) {
+            cout << "Entrée invalide";
+        }
+        cout <<endl;
+
 }
 /**
 * @name mouvementPion
