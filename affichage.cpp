@@ -9,7 +9,7 @@ void affichageTablier(vector<vector<etatCellule>> tablier){
         for (int j = 0; j < 7; ++j) {
             switch (tablier[i][j]){
                 case existant:
-                    cout << " " << i << j;
+                    cout << " " << i+1 << j+1;
                     break;
                 case nonExistant:
                     cout << "   ";

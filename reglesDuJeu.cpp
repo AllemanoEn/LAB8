@@ -17,7 +17,10 @@ void mouvementPion(string mouvement, vector<vector<etatCellule>>& tablier, int t
 * @param taille
 */
 void coupPossibles(string mouvement, vector<vector<etatCellule>>& tablier, int taille)
-{
+{   const int deuxCases=2; ///Définit la valeur pour compter deux cases de distance
+    const int uneCase=1;
+    const int valeurTableauReel=1;
+    /// La valeur du tableau à afficher est 44, les index sont à 33, il faut donc ajouter +1 pour avoir la vraie valeur
     vector<string> coupPossibles;
     for(unsigned i=1; i<taille; i++)
     {
@@ -25,20 +28,20 @@ void coupPossibles(string mouvement, vector<vector<etatCellule>>& tablier, int t
         {
             if(tablier[i][j]==vide)
             {
-                if(i+2 <taille && tablier[i+2][j]==existant && tablier[i+1][j]==existant){
-                    coupPossibles.push_back(to_string(i+2)+to_string(j)+'u');
+                if(i+2 <taille && tablier[i+deuxCases][j]==existant && tablier[i+uneCase][j]==existant){
+                    coupPossibles.push_back(to_string(i+deuxCases+valeurTableauReel)+to_string(j+valeurTableauReel)+'u');
                 }
                 if (i-2 > 0  && tablier[i-2][j] == existant && tablier[i-1][j] == existant)
                 {
-                    coupPossibles.push_back(to_string(i-2)+to_string(j)+'d');
+                    coupPossibles.push_back(to_string(i-deuxCases+valeurTableauReel)+to_string(j+valeurTableauReel)+'d');
                 }
                 if(j+2 < taille && tablier[i][j+2] == existant && tablier[i][j+1] == existant)
                 {
-                    coupPossibles.push_back(to_string(i)+to_string(j+2)+'l');
+                    coupPossibles.push_back(to_string(i+valeurTableauReel)+to_string(j+deuxCases+valeurTableauReel)+'l');
                 }
                 if(j-2>0  && tablier[i][j-2] == existant && tablier[i][j-1] == existant)
                 {
-                    coupPossibles.push_back(to_string(i)+to_string(j-2)+'r');
+                    coupPossibles.push_back(to_string(i+valeurTableauReel)+to_string(j-deuxCases+valeurTableauReel)+'r');
                 }
             }
         }
@@ -72,11 +75,13 @@ void coupPossibles(string mouvement, vector<vector<etatCellule>>& tablier, int t
 */
 void mouvementPion(string mouvement, vector<vector<etatCellule>>& tablier, int taille)
 {
+    const int zeroAscii=48;
+    const int valeurTableauReel = 1;
     const unsigned int coordonneesY = 0;
     const unsigned int coordonneesX = 1;
     const unsigned int direction=2;
-    unsigned int valeurY = int(mouvement[coordonneesY]) - 48;
-    unsigned int valeurX = int(mouvement[coordonneesX]) - 48;
+    unsigned int valeurY = int(mouvement[coordonneesY]) - zeroAscii - valeurTableauReel;
+    unsigned int valeurX = int(mouvement[coordonneesX]) - zeroAscii - valeurTableauReel;
     char directionMouvement = mouvement[direction];
 
     switch(directionMouvement)
