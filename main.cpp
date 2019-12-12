@@ -23,6 +23,7 @@ int main() {
 
     vector<vector<etatCellule>> tablier(7,vector<etatCellule>(7));
 
+    cout << "test";
     initialisationTablier(tablier);
 
     affichageTablier(tablier);
