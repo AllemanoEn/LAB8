@@ -3,16 +3,24 @@
 //
 #include <iostream>
 #include <vector>
+#include "reglesDuJeu.h"
 
 using namespace std;
-void mouvementPion(string mouvement, vector<vector<etatCellule>> tablier, int taille);
 
+void mouvementPion(string mouvement, vector<vector<etatCellule>> tablier, int taille);
+/**
+* @name
+* @brief
+* @param mouvement
+* @param tablier
+* @param taille
+*/
 void coupPossibles(string mouvement, vector<vector<etatCellule>> tablier, int taille)
 {
     vector<string> coupPossibles;
-    for(unsigned i=0; i<taille; i++)
+    for(unsigned i=1; i<taille; i++)
     {
-        for (unsigned j=0; j<taille; i++)
+        for (unsigned j=1; j<taille; j++)
         {
             if(tablier[i][j]==vide)
             {
@@ -35,25 +43,25 @@ void coupPossibles(string mouvement, vector<vector<etatCellule>> tablier, int ta
         }
 
     }
-    /*switch(mouvement)
-    {
 
-    }*/
-    if (mouvement != "h") {
-        for (auto i = coupPossibles.begin(); i != coupPossibles.end() - 1; i++) {
-            if (*i == mouvement) {
-                mouvementPion(mouvement, tablier, taille);
-            } else {
-                cout << "Coup impossible" << endl;
-            }
+    for (auto i = coupPossibles.begin(); i != coupPossibles.end() - 1; i++) {
+        if (*i == mouvement) {
+            mouvementPion(mouvement, tablier, taille);
+        } else if(mouvement=="h"){
+            cout << *i << " ";
+        } else{
+            cout << "Entrée invalide";
         }
     }
+    cout << endl;
 }
-void coupPossibles()
-{
-
-}
-
+/**
+* @name mouvementPion
+* @brief Gère le déplacement du pion dans la direction voulu et les conséquences
+* @param mouvement Le mouvement rentrée par l'utilisateur (32d, 23u..)
+* @param tablier Vecteur contenant les données du jeu
+* @param taille taille du tablier
+*/
 void mouvementPion(string mouvement, vector<vector<etatCellule>> tablier, int taille)
 {
     const unsigned int coordonneesY = 0;
@@ -65,13 +73,21 @@ void mouvementPion(string mouvement, vector<vector<etatCellule>> tablier, int ta
 
     switch(directionMouvement)
     {
-        case 'u' : tablier[valeurY-1][valeurX] = vide;
+        case 'u' :  tablier[valeurY-1][valeurX] = vide; ///Case sautée
+            tablier[valeurY][valeurX]=vide; ///Case actuelle
+            tablier[valeurY-2][valeurX] = existant; ///Prochaine case
             break;
-        case 'd' : tablier[valeurY+1][valeurX] = vide;
+        case 'd' :  tablier[valeurY+1][valeurX] = vide;
+            tablier[valeurY][valeurX]=vide;
+            tablier[valeurY+2][valeurX] = existant;
             break;
-        case 'l' : tablier[valeurY][valeurX-1] = vide;
+        case 'l' :  tablier[valeurY][valeurX-1] = vide;
+            tablier[valeurY][valeurX]=vide;
+            tablier[valeurY][valeurX-2] = existant;
             break;
-        case 'r' : tablier[valeurY][valeurX+1] = vide;
+        case 'r' :  tablier[valeurY][valeurX+1] = vide;
+            tablier[valeurY][valeurX]=vide;
+            tablier[valeurY][valeurX+2] = vide;
             break;
         default : cout << "Entrée invalide" << endl;
     }
