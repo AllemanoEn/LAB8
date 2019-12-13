@@ -16,15 +16,15 @@ void mouvementPion(string mouvement, vector<vector<etatCellule>>& tablier, int t
 * @param tablier
 * @param taille
 */
-void coupPossibles(string mouvement, vector<vector<etatCellule>>& tablier, int taille, int& compteur)
+void coupPossibles(string mouvement, vector<vector<etatCellule>>& tablier, int taille, int& compteur, bool& finPartie)
 {   const int deuxCases=2; ///Définit la valeur pour compter deux cases de distance
     const int uneCase=1;
     const int valeurTableauReel=1;
     /// La valeur du tableau à afficher est 44, les index sont à 33, il faut donc ajouter +1 pour avoir la vraie valeur
     vector<string> coupPossibles;
-    for(unsigned i=1; i<taille; i++)
+    for(signed i=0; i<taille; i++)
     {
-        for (unsigned j=1; j<taille; j++)
+        for (signed j=0; j<taille; j++)
         {
             if(tablier[i][j]==vide)
             {
@@ -50,9 +50,9 @@ void coupPossibles(string mouvement, vector<vector<etatCellule>>& tablier, int t
     if(coupPossibles.empty())
     {
         cout << "Fin de partie"<<endl;
+        finPartie = 0;
         return;
     }
-
     bool coupPossible=0;
     for (auto i = coupPossibles.begin(); i != coupPossibles.end(); i++) {
         if (mouvement == "h") {
@@ -69,6 +69,7 @@ void coupPossibles(string mouvement, vector<vector<etatCellule>>& tablier, int t
     }
         if (!(coupPossible)) {
             cout << "Entrée invalide";
+
         }
 
         cout <<endl;
@@ -108,7 +109,7 @@ void mouvementPion(string mouvement, vector<vector<etatCellule>>& tablier, int t
             break;
         case 'r' :  tablier[valeurY][valeurX+1] = vide;
             tablier[valeurY][valeurX]=vide;
-            tablier[valeurY][valeurX+2] = vide;
+            tablier[valeurY][valeurX+2] = existant;
             break;
         default : cout << "Entrée invalide" << endl;
     }
