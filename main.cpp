@@ -24,8 +24,8 @@ int main() {
     bool finPartie = 1;
     const string PARFAIT = "Parfait, il ne reste qu'une bille au centre";
     const string BRAVO = "Bravo, vous avez gagne avec une seule bille restante. Au centre ce serait parfait";
-    const string PASMAL= "Pas mal, il ne reste que" +to_string(compteurBilles)+ "billes";
-    const string PEUTFAIREMIEUX = "Vous pouvez faire mieux, il reste" + to_string(compteurBilles)+ "billes (pour N > 5)";
+    const string PASMAL= "Pas mal, il ne reste que billes";
+    const string PEUTFAIREMIEUX = "Vous pouvez faire mieux, il reste billes (pour N > 5)";
 
     vector<vector<etatCellule>> tablier(7,vector<etatCellule>(7));
     initialisationTablier(tablier);
@@ -42,6 +42,7 @@ int main() {
 
     switch(compteurBilles)
     {
+        ///to_string(compteurBilles)
         case 0 : cout << PARFAIT;
             break;
         case 1 : cout << BRAVO;
