@@ -22,23 +22,28 @@ void initialisationTablier(vector<vector<etatCellule>>& tablier){
 int main() {
     int compteurBilles=32;
     bool finPartie = 1;
-    const string PARFAIT = "Parfait, il ne reste qu'une bille au centre";
-    const string BRAVO = "Bravo, vous avez gagne avec une seule bille restante. Au centre ce serait parfait";
-    const string PASMAL= "Pas mal, il ne reste que billes";
-    const string PEUTFAIREMIEUX = "Vous pouvez faire mieux, il reste billes (pour N > 5)";
+    string PARFAIT;
+    string BRAVO;
+    string PASMAL;
+    string PEUTFAIREMIEUX;
 
     vector<vector<etatCellule>> tablier(7,vector<etatCellule>(7));
     initialisationTablier(tablier);
 
     affichageTablier(tablier);
     do {
-        string input;
-        getline(cin, input);
+            string input;
+            getline(cin, input);
 
-        coupPossibles(input, tablier, 7, compteurBilles, finPartie);
+            coupPossibles(input, tablier, 7, compteurBilles, finPartie);
 
-        affichageTablier(tablier);
+            affichageTablier(tablier);
     } while (finPartie);
+
+    PARFAIT = "Parfait, il ne reste qu'une bille au centre";
+    BRAVO = "Bravo, vous avez gagne avec une seule bille restante. Au centre ce serait parfait";
+    PASMAL= "Pas mal, il ne reste que " + to_string(compteurBilles) + " billes";
+    PEUTFAIREMIEUX = "Vous pouvez faire mieux, il reste "+ to_string(compteurBilles) + " billes";
 
     switch(compteurBilles)
     {
@@ -54,7 +59,6 @@ int main() {
             break;
         default: cout << PEUTFAIREMIEUX;
     }
-    cout << compteurBilles;
 
     return 0;
 }
