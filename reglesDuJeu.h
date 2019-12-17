@@ -1,9 +1,13 @@
-//
-// Created by jetca on 12.12.2019.
-//
-#ifndef LAB008_REGLESDUJEU_H
-#define LAB008_REGLESDUJEU_H
+#ifndef LAB8_REGLESDUJEU_H
+#define LAB8_REGLESDUJEU_H
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
 
 enum etatCellule {nonExistant, existant, vide};
 
-#endif //LAB008_REGLESDUJEU_H
+void coupPossibles(const string& mouvement, vector<vector<etatCellule>>& tablier, int taille, int& compteur, bool& finPartie);
+
+#endif //LAB8_REGLESDUJEU_H

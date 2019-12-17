@@ -6,13 +6,7 @@
 using namespace std;
 
 void mouvementPion(string mouvement, vector<vector<etatCellule>>& tablier, int taille);
-/**
-* @name
-* @brief
-* @param mouvement
-* @param tablier
-* @param taille
-*/
+
 void coupPossibles(const string& mouvement, vector<vector<etatCellule>>& tablier, int taille, int& compteur, bool& finPartie)
 {   const int deuxCases=2; ///Définit la valeur pour compter deux cases de distance
     const int uneCase=1;
@@ -73,12 +67,12 @@ void coupPossibles(const string& mouvement, vector<vector<etatCellule>>& tablier
         }
 
     }
-        if (!(coupPossible)) {
-            cout << "Entrée invalide";
+    if (!(coupPossible)) {
+        cout << "Entrée invalide";
 
-        }
+    }
 
-        cout <<endl;
+    cout <<endl;
 
 }
 /**
