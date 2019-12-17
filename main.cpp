@@ -1,3 +1,17 @@
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 07
+ Fichier     : main.cpp
+ Auteur(s)   : Jonathan Stocchetti, Nicolas Viotti, Enzo Allemano
+ Date        : 17.12.2019
+
+ But         : Pour ce laboratoire, vous allez mettre en oeuvre le jeu du solitaire dans sa version à 32 billes (tablier anglais).
+
+ Remarque(s) : ('h' pour l'aide et 'q' pour quitter)
+
+ Compilateur : MinGW-g++ 6.3.0
+ -----------------------------------------------------------------------------------
+ */
 #include <iostream>
 #include "affichage.cpp"
 #include "reglesDuJeu.h"
@@ -9,7 +23,7 @@ using namespace std;
 void initialisationTablier(vector<vector<etatCellule>>& tablier){
     for(int i = 0; i < 7 ; i++){
         for (int j = 0; j < 7; ++j) {
-            if(i==2 || i == 3 || i == 4 || j==2 || j == 3 || j == 4){
+            if(i==2 || i == 3 || i == 4 ){
                 tablier[i][j] = existant;
             } else{
                 tablier[i][j] = nonExistant;
@@ -21,7 +35,7 @@ void initialisationTablier(vector<vector<etatCellule>>& tablier){
 
 int main() {
     int compteurBilles=32;
-    bool finPartie = 1;
+    bool finPartie = true;
     string PARFAIT;
     string BRAVO;
     string PASMAL;

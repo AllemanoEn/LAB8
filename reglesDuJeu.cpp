@@ -1,6 +1,3 @@
-//
-// Created by jetca on 11.12.2019.
-//
 #include <iostream>
 #include <vector>
 
@@ -16,7 +13,7 @@ void mouvementPion(string mouvement, vector<vector<etatCellule>>& tablier, int t
 * @param tablier
 * @param taille
 */
-void coupPossibles(string mouvement, vector<vector<etatCellule>>& tablier, int taille, int& compteur, bool& finPartie)
+void coupPossibles(const string& mouvement, vector<vector<etatCellule>>& tablier, int taille, int& compteur, bool& finPartie)
 {   const int deuxCases=2; ///Définit la valeur pour compter deux cases de distance
     const int uneCase=1;
     const int valeurTableauReel=1;
@@ -50,20 +47,29 @@ void coupPossibles(string mouvement, vector<vector<etatCellule>>& tablier, int t
     if(coupPossibles.empty())
     {
         cout << "Fin de partie"<<endl;
-        finPartie = 0;
+        finPartie = false;
         return;
     }
-    bool coupPossible=0;
-    for (auto i = coupPossibles.begin(); i != coupPossibles.end(); i++) {
+    bool coupPossible=false;
+    for (auto & i : coupPossibles) {
         if (mouvement == "h") {
-            cout << *i << " ";
+            cout << i << " ";
             coupPossible=true;
+        }else if(mouvement == "q"){
+            coupPossible = true;
+            finPartie = false;
         }
-        else if(mouvement == *i)
+        else if(mouvement == i)
         {
             coupPossible = true;
             mouvementPion(mouvement, tablier, taille);
             compteur--;
+            if(compteur == 1){
+                if(tablier[3][3]==existant)
+                {
+                    compteur=0;
+                }
+            }
         }
 
     }
