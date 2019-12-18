@@ -6,7 +6,15 @@
 using namespace std;
 
 void mouvementPion(string mouvement, vector<vector<etatCellule>>& tablier, int taille);
-
+/**
+ * @name coupPossibles
+ * @brief Permet Vérifie les coups possibles et les compare avec l'entrée utilisateur
+ * @param mouvement L'entrée utilisateur
+ * @param tablier
+ * @param taille
+ * @param compteur Permet le décompte des billes jouées
+ * @param finPartie
+ */
 void coupPossibles(const string& mouvement, vector<vector<etatCellule>>& tablier, int taille, int& compteur, bool& finPartie)
 {   const int deuxCases=2; ///Définit la valeur pour compter deux cases de distance
     const int uneCase=1;
@@ -44,15 +52,15 @@ void coupPossibles(const string& mouvement, vector<vector<etatCellule>>& tablier
         finPartie = false;
         return;
     }
-    if(mouvement == "1"){
+    if(mouvement == "1"){ //Permet de vérifier la fin du programme après le dernier coup possible
         return;
     }
     bool coupPossible=false;
     for (auto & i : coupPossibles) {
-        if (mouvement == "h") {
+        if (mouvement == "h") { //Gère l'appel d'aide
             cout << i << " ";
             coupPossible=true;
-        }else if(mouvement == "q"){
+        }else if(mouvement == "q"){ //Gère la sortie du programme
             coupPossible = true;
             finPartie = false;
         }
@@ -92,7 +100,7 @@ void mouvementPion(string mouvement, vector<vector<etatCellule>>& tablier, int t
     const unsigned int coordonneesY = 0;
     const unsigned int coordonneesX = 1;
     const unsigned int direction=2;
-    unsigned int valeurY = int(mouvement[coordonneesY]) - zeroAscii - valeurTableauReel;
+    unsigned int valeurY = int(mouvement[coordonneesY]) - zeroAscii - valeurTableauReel; //Récupère les valeurs entières
     unsigned int valeurX = int(mouvement[coordonneesX]) - zeroAscii - valeurTableauReel;
     char directionMouvement = mouvement[direction];
 

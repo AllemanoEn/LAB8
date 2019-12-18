@@ -3,7 +3,7 @@
  Laboratoire : 07
  Fichier     : main.cpp
  Auteur(s)   : Jonathan Stocchetti, Nicolas Viotti, Enzo Allemano
- Date        : 17.12.2019
+ Date        : 18.12.2019
 
  But         : Pour ce laboratoire, vous allez mettre en oeuvre le jeu du solitaire dans sa version à 32 billes (tablier anglais).
 
