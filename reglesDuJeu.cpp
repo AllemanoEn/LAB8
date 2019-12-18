@@ -44,6 +44,9 @@ void coupPossibles(const string& mouvement, vector<vector<etatCellule>>& tablier
         finPartie = false;
         return;
     }
+    if(mouvement == "1"){
+        return;
+    }
     bool coupPossible=false;
     for (auto & i : coupPossibles) {
         if (mouvement == "h") {

@@ -23,7 +23,7 @@ using namespace std;
 void initialisationTablier(vector<vector<etatCellule>>& tablier){
     for(int i = 0; i < 7 ; i++){
         for (int j = 0; j < 7; ++j) {
-            if(i==2 || i == 3 || i == 4 || j==2 || j == 3 || j == 4 ){
+            if(i==2 || i == 3 || i == 4 ){
                 tablier[i][j] = existant;
             } else{
                 tablier[i][j] = nonExistant;
@@ -46,12 +46,18 @@ int main() {
 
     affichageTablier(tablier);
     do {
+        coupPossibles("1", tablier, 7, compteurBilles, finPartie);
+        if(finPartie){
             string input;
             getline(cin, input);
 
             coupPossibles(input, tablier, 7, compteurBilles, finPartie);
 
             affichageTablier(tablier);
+        }else{
+
+        }
+
     } while (finPartie);
 
     PARFAIT = "Parfait, il ne reste qu'une bille au centre";
