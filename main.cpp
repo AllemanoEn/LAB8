@@ -54,8 +54,6 @@ int main() {
             coupPossibles(input, tablier, 7, compteurBilles, finPartie);
 
             affichageTablier(tablier);
-        }else{
-
         }
 
     } while (finPartie);
