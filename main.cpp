@@ -55,8 +55,8 @@ int main() {
 
     affichageTablier(tablier);
     do {
-        //Cette ligne est spéciale, elle recoit "1" en mouvement. Elle ne modifie pas le tablier. Elle sert uniquement à tester si la partie est terminée.
-        //Cela évite de devoir re-entrer une valeur pour terminer la partie
+        ///Cette ligne est spéciale, elle recoit "1" en mouvement. Elle ne modifie pas le tablier. Elle sert uniquement à tester si la partie est terminée.
+        ///Cela évite de devoir re-entrer une valeur pour terminer la partie
         coupPossibles("1", tablier, 7, compteurBilles, finPartie);
 
         if(finPartie){
