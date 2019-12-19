@@ -1,29 +1,33 @@
-/*
- -----------------------------------------------------------------------------------
- Laboratoire : 07
- Fichier     : main.cpp
- Auteur(s)   : Jonathan Stocchetti, Nicolas Viotti, Enzo Allemano
- Date        : 18.12.2019
+/// \file main.cpp
+/// \authors Enzo Allemano, Nicolas Viotti, Jonathan Stocchetti
+/// \date 18.12.2019
+///
+/// \brief \b Laboratoire \b 08
+/// \brief Ce programme est le jeu du solitaire dans sa version à 32 billes (tablier anglais).
+///
+/// Remarque(s) : ('h' pour l'aide et 'q' pour quitter)
+///
+/// Compilateur :  MinGW-g++ 6.3.0
 
- But         : Pour ce laboratoire, vous allez mettre en oeuvre le jeu du solitaire dans sa version à 32 billes (tablier anglais).
-
- Remarque(s) : ('h' pour l'aide et 'q' pour quitter)
-
- Compilateur : MinGW-g++ 6.3.0
- -----------------------------------------------------------------------------------
- */
 #include <iostream>
-#include "affichage.cpp"
 #include "affichage.h"
 #include "reglesDuJeu.h"
+
+///includes à supprimer si Netbeans est utilisé
+#include "affichage.cpp"
 #include "reglesDuJeu.cpp"
 
 using namespace std;
 
+/**
+ * \name initialisationTablier
+ * \brief Créer le vecteur qui correspond au tablier
+ * \param tablier un vecteur qui donne une valeur pour chaque case du tablier
+ */
 void initialisationTablier(vector<vector<etatCellule>>& tablier){
     for(int i = 0; i < 7 ; i++){
         for (int j = 0; j < 7; ++j) {
-            if(i==2 || i == 3 || i == 4 ){
+            if(i==2 || i == 3 || i == 4 || j == 2 || j == 3 || j == 4 ){
                 tablier[i][j] = existant;
             } else{
                 tablier[i][j] = nonExistant;
@@ -33,6 +37,11 @@ void initialisationTablier(vector<vector<etatCellule>>& tablier){
     }
 }
 
+/**
+ * \name main
+ * \brief Lance le jeu du solitaire
+ * \return 0
+ */
 int main() {
     int compteurBilles=32;
     bool finPartie = true;
@@ -65,7 +74,6 @@ int main() {
 
     switch(compteurBilles)
     {
-        ///to_string(compteurBilles)
         case 0 : cout << PARFAIT;
             break;
         case 1 : cout << BRAVO;

@@ -1,3 +1,14 @@
+/// \file reglesDuJeu.cpp
+/// \authors Enzo Allemano, Nicolas Viotti, Jonathan Stocchetti
+/// \date 18.12.2019
+///
+/// \brief \b Laboratoire \b 08
+/// \brief Contient toutes les fonctions correspondant aux règles du jeu (Mouvement du pion, coups possibles)
+///
+/// Remarque(s) : 
+///
+/// Compilateur :  MinGW-g++ 6.3.0
+
 #include <iostream>
 #include <vector>
 
@@ -6,19 +17,23 @@
 using namespace std;
 
 void mouvementPion(string mouvement, vector<vector<etatCellule>>& tablier, int taille);
+
 /**
- * @name coupPossibles
- * @brief Permet Vérifie les coups possibles et les compare avec l'entrée utilisateur
- * @param mouvement L'entrée utilisateur
- * @param tablier
- * @param taille
- * @param compteur Permet le décompte des billes jouées
- * @param finPartie
+ * \name coupPossibles
+ * \brief Permet Vérifie les coups possibles et les compare avec l'entrée utilisateur
+ * \param mouvement L'entrée utilisateur
+ * \param tablier Vecteur avec les valeurs des cellules
+ * \param taille Correspond à la taille des lignes/colonnes du tablier
+ * \param compteur Permet le décompte des billes jouées
+ * \param finPartie Savoir si la partie est terminée
  */
 void coupPossibles(const string& mouvement, vector<vector<etatCellule>>& tablier, int taille, int& compteur, bool& finPartie)
-{   const int deuxCases=2; ///Définit la valeur pour compter deux cases de distance
+{   
+    ///Définit la valeur pour compter deux cases de distance
+    const int deuxCases=2; 
     const int uneCase=1;
     const int valeurTableauReel=1;
+    
     /// La valeur du tableau à afficher est 44, les index sont à 33, il faut donc ajouter +1 pour avoir la vraie valeur
     vector<string> coupPossibles;
     for(signed i=0; i<taille; i++)
@@ -46,24 +61,34 @@ void coupPossibles(const string& mouvement, vector<vector<etatCellule>>& tablier
         }
 
     }
+    
     if(coupPossibles.empty())
     {
         cout << "Fin de partie"<<endl;
         finPartie = false;
         return;
     }
-    if(mouvement == "1"){ //Permet de vérifier la fin du programme après le dernier coup possible
+    
+    ///Permet de vérifier la fin du programme après le dernier coup possible
+    if(mouvement == "1"){ 
         return;
     }
+    
     bool coupPossible=false;
     for (auto & i : coupPossibles) {
-        if (mouvement == "h") { //Gère l'appel d'aide
+       
+       ///Gère l'appel d'aide
+        if (mouvement == "h") { 
             cout << i << " ";
             coupPossible=true;
-        }else if(mouvement == "q"){ //Gère la sortie du programme
+        }
+        
+        //Gère la sortie du programme
+        else if(mouvement == "q"){ 
             coupPossible = true;
             finPartie = false;
         }
+        
         else if(mouvement == i)
         {
             coupPossible = true;
@@ -80,18 +105,18 @@ void coupPossibles(const string& mouvement, vector<vector<etatCellule>>& tablier
     }
     if (!(coupPossible)) {
         cout << "Entrée invalide";
-
     }
 
     cout <<endl;
 
 }
+
 /**
-* @name mouvementPion
-* @brief Gère le déplacement du pion dans la direction voulu et les conséquences
-* @param mouvement Le mouvement rentrée par l'utilisateur (32d, 23u..)
-* @param tablier Vecteur contenant les données du jeu
-* @param taille taille du tablier
+* \name mouvementPion
+* \brief Gère le déplacement du pion dans la direction voulu et les conséquences
+* \param mouvement Le mouvement rentrée par l'utilisateur (32d, 23u..)
+* \param tablier Vecteur contenant les données du jeu
+* \param taille taille du tablier
 */
 void mouvementPion(string mouvement, vector<vector<etatCellule>>& tablier, int taille)
 {
@@ -105,7 +130,7 @@ void mouvementPion(string mouvement, vector<vector<etatCellule>>& tablier, int t
     char directionMouvement = mouvement[direction];
 
     switch(directionMouvement)
-    {
+    {///Case sautée
         case 'u' :  tablier[valeurY-1][valeurX] = vide; ///Case sautée
             tablier[valeurY][valeurX]=vide; ///Case actuelle
             tablier[valeurY-2][valeurX] = existant; ///Prochaine case
